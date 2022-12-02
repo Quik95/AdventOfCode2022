@@ -21,4 +21,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\AdventOfCode2022.Solvers\AdventOfCode2022.Solvers.csproj"/>
+    </ItemGroup>
+
 </Project>
