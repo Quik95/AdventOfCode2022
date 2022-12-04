@@ -38,4 +38,22 @@ public class AdventOfCodeTests
             Assert.Equal(70, d.SolvePart2());
         }
     }
+
+    public class Day04Tests
+    {
+        [Fact]
+        public void Part1Example()
+        {
+            var d = new Day04(
+                "2-4,6-8\n" +
+                "2-3,4-5\n" +
+                "5-7,7-9\n" +
+                "2-8,3-7\n" +
+                "6-6,4-6\n" +
+                "2-6,4-8"
+            );
+            Assert.Equal(2, d.SolvePart1());
+            Assert.Equal(4, d.SolvePart2());
+        }
+    }
 }
