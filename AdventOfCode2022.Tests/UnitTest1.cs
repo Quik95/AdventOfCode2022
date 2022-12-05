@@ -56,4 +56,23 @@ public class AdventOfCodeTests
             Assert.Equal(4, d.SolvePart2());
         }
     }
+
+    public class Day05Tests
+    {
+        [Fact]
+        public void CargoParseTest()
+        {
+            var d = new Day05(
+                "    [D]    \n" +
+                "[N] [C]    \n" +
+                "[Z] [M] [P]\n" +
+                "move 1 from 2 to 1\n" +
+                "move 3 from 1 to 3\n" +
+                "move 2 from 2 to 1\n" +
+                "move 1 from 1 to 2"
+            );
+            Assert.Equal("CMZ", d.SolvePart1String());
+            Assert.Equal("MCD", d.SolvePart2String());
+        }
+    }
 }
