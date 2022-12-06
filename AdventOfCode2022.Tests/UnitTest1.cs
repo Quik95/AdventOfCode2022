@@ -75,4 +75,19 @@ public class AdventOfCodeTests
             Assert.Equal("MCD", d.SolvePart2String());
         }
     }
+
+    public class Day06Tests
+    {
+        [Fact]
+        public void Part1Example()
+        {
+            var d = new Day06("mjqjpqmgbljsphdztnvjfqwrcgsmlb");
+            Assert.Equal(7, d.SolvePart1());
+            Assert.Equal(19, d.SolvePart2());
+
+            d = new Day06("bvwbjplbgvbhsrlpgdmjqwftvncz");
+            Assert.Equal(5, d.SolvePart1());
+            Assert.Equal(23, d.SolvePart2());
+        }
+    }
 }

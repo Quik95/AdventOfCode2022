@@ -16,7 +16,7 @@ public abstract class BaseDay
         RawInput = rawInput;
     }
 
-    public virtual void Solve()
+    public void Solve()
     {
         var dayName = GetType().Name;
 
