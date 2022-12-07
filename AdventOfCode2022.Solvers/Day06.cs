@@ -2,7 +2,7 @@ using MoreLinq.Extensions;
 
 namespace AdventOfCode2022.Solvers;
 
-public class Day06 : BaseDay
+public sealed class Day06 : BaseDay
 {
     private readonly string _buffer;
 
