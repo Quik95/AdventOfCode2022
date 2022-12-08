@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using MoreLinq.Extensions;
 
 namespace AdventOfCode2022.Solvers;
@@ -8,13 +9,19 @@ public sealed class Day06 : BaseDay
 
     public Day06(string buffer) : base(buffer)
     {
+        var sw = Stopwatch.StartNew();
         _buffer = RawInput;
+        sw.Stop();
+        ParsingTime = sw.ElapsedMilliseconds;
     }
 
     public Day06()
     {
         _buffer = RawInput;
     }
+
+    protected override long ParsingTime { get; }
+
 
     public override int SolvePart1()
     {

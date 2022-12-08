@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using MoreLinq.Extensions;
 
@@ -12,13 +13,18 @@ public sealed class Day05 : BaseDay
 
     public Day05()
     {
+        var sw = Stopwatch.StartNew();
         (_stacks, _moves) = ParseInput();
+        sw.Stop();
+        ParsingTime = sw.ElapsedMilliseconds;
     }
 
     public Day05(string input) : base(input)
     {
         (_stacks, _moves) = ParseInput();
     }
+
+    protected override long ParsingTime { get; }
 
     private (Stack<char>[], Move[]) ParseInput()
     {
@@ -49,6 +55,7 @@ public sealed class Day05 : BaseDay
 
         return (stacks, moves);
     }
+
 
     public override string SolvePart1String()
     {

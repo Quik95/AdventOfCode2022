@@ -16,11 +16,14 @@ public abstract class BaseDay
         RawInput = rawInput;
     }
 
+    protected abstract long ParsingTime { get; }
+
     public void Solve()
     {
         var dayName = GetType().Name;
 
         Console.WriteLine($"Solution for {GetType().Name}:");
+        Console.WriteLine($"\tParsing took: {ParsingTime}ms");
         if (dayName == "Day05")
         {
             var partOneTime = Stopwatch.StartNew();

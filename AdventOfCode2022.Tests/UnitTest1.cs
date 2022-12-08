@@ -125,4 +125,21 @@ public class AdventOfCodeTests
             Assert.Equal(24933642, d.SolvePart2());
         }
     }
+
+    public class Day08Tests
+    {
+        [Fact]
+        public void Part1Example()
+        {
+            var d = new Day08(
+                "30373\n" +
+                "25512\n" +
+                "65332\n" +
+                "33549\n" +
+                "35390"
+            );
+            Assert.Equal(21, d.SolvePart1());
+            Assert.Equal(8, d.SolvePart2());
+        }
+    }
 }

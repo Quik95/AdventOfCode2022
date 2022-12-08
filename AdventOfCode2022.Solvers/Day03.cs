@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using static MoreLinq.Extensions.BatchExtension;
 
 namespace AdventOfCode2022.Solvers;
@@ -8,7 +9,10 @@ public sealed class Day03 : BaseDay
 
     public Day03()
     {
+        var sw = Stopwatch.StartNew();
         _input = ParseInput();
+        sw.Stop();
+        ParsingTime = sw.ElapsedMilliseconds;
     }
 
     public Day03(string rawInput) : base(rawInput)
@@ -16,10 +20,13 @@ public sealed class Day03 : BaseDay
         _input = ParseInput();
     }
 
+    protected override long ParsingTime { get; }
+
     private static int CalculateBadgeWeight(char badge)
     {
         return char.IsAsciiLetterUpper(badge) ? badge - 'A' + 27 : badge - 'a' + 1;
     }
+
 
     public override int SolvePart1()
     {
@@ -39,7 +46,7 @@ public sealed class Day03 : BaseDay
     {
         return _input
             .Batch(3)
-            .Select(group => group.Select(elf => elf.ToCharArray()))
+            .Select(group => group.Select(elf => elf))
             .Select(group => group.ToArray())
             .Select(group => group[0].Intersect(group[1].Intersect(group[2])))
             .Select(enumerable => enumerable.First())

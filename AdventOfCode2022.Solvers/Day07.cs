@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace AdventOfCode2022.Solvers;
 
 public sealed class Day07 : BaseDay
@@ -6,13 +8,18 @@ public sealed class Day07 : BaseDay
 
     public Day07()
     {
+        var sw = Stopwatch.StartNew();
         _rootElement = ParseInput();
+        sw.Stop();
+        ParsingTime = sw.ElapsedMilliseconds;
     }
 
     public Day07(string input) : base(input)
     {
         _rootElement = ParseInput();
     }
+
+    protected override long ParsingTime { get; }
 
     private new Entry ParseInput()
     {
@@ -61,6 +68,7 @@ public sealed class Day07 : BaseDay
         rootElement.GetSize();
         return rootElement;
     }
+
 
     public override int SolvePart1()
     {
