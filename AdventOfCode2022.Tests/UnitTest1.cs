@@ -142,4 +142,39 @@ public class AdventOfCodeTests
             Assert.Equal(8, d.SolvePart2());
         }
     }
+
+    public class Day09Tests
+    {
+        [Fact]
+        public void Part1Example()
+        {
+            var d = new Day09(
+                "R 4\n" +
+                "U 4\n" +
+                "L 3\n" +
+                "D 1\n" +
+                "R 4\n" +
+                "D 1\n" +
+                "L 5\n" +
+                "R 2"
+            );
+            Assert.Equal(13, d.SolvePart1());
+        }
+
+        [Fact]
+        public void Part2Example()
+        {
+            var d = new Day09(
+                "R 5\n" +
+                "U 8\n" +
+                "L 8\n" +
+                "D 3\n" +
+                "R 17\n" +
+                "D 10\n" +
+                "L 25\n" +
+                "U 20"
+            );
+            Assert.Equal(36, d.SolvePart2());
+        }
+    }
 }
