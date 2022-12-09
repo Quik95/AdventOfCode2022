@@ -26,7 +26,7 @@ public sealed class Day05 : BaseDay
 
     protected override long ParsingTime { get; }
 
-    private (Stack<char>[], Move[]) ParseInput()
+    private new (Stack<char>[], Move[]) ParseInput()
     {
         var lines = RawInput.Split(Environment.NewLine).ToArray();
 

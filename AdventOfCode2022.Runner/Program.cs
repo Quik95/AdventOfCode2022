@@ -7,10 +7,10 @@ foreach (var day in Directory.GetFiles("./inputs", "*.txt"))
     try
     {
         var className = Type.GetType(assemblyQualifiedName);
-        var solver = Activator.CreateInstance(className);
-        className.GetMethod("Solve").Invoke(solver, null);
+        var solver = Activator.CreateInstance(className!);
+        className?.GetMethod("Solve")!.Invoke(solver, null);
     }
-    catch (ArgumentNullException e)
+    catch (ArgumentNullException)
     {
         Console.WriteLine($"Failed to load class for {day}");
         throw;
