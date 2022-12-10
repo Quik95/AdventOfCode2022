@@ -97,7 +97,12 @@ public static class StringExtension
 {
     public static string TrimStart(this string str, string toBeTrimmed)
     {
-        return str.Remove(0, toBeTrimmed.Length);
+        if (string.IsNullOrEmpty(toBeTrimmed)) return str;
+
+        var result = str;
+        while (result.StartsWith(toBeTrimmed)) result = result[toBeTrimmed.Length..];
+
+        return result;
     }
 }
 

@@ -41,7 +41,7 @@ public abstract class BaseDay
             var part1 = SolvePart1();
             partOneTime.Stop();
             var partTwoTime = Stopwatch.StartNew();
-            var part2 = SolvePart2();
+            var part2 = dayName == "Day10" ? SolvePart2String() : $"{SolvePart2()}";
             partTwoTime.Stop();
             Console.WriteLine($"\tPart 1: {part1} ({partOneTime.ElapsedMilliseconds}ms)");
             Console.WriteLine($"\tPart 2: {part2} ({partTwoTime.ElapsedMilliseconds}ms)");
