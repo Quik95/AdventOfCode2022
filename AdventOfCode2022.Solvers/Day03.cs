@@ -28,7 +28,7 @@ public sealed class Day03 : BaseDay
     }
 
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
         return _input
             .Select(
@@ -39,10 +39,11 @@ public sealed class Day03 : BaseDay
             ).Select(enumerable => enumerable.First())
             .Aggregate(0, (cumulative, next) =>
                 cumulative + CalculateBadgeWeight(next)
-            );
+            )
+            .ToString();
     }
 
-    public override int SolvePart2()
+    public override string SolvePart2()
     {
         return _input
             .Batch(3)
@@ -50,6 +51,7 @@ public sealed class Day03 : BaseDay
             .Select(group => group.ToArray())
             .Select(group => group[0].Intersect(group[1].Intersect(group[2])))
             .Select(enumerable => enumerable.First())
-            .Aggregate(0, (cumulative, next) => cumulative + CalculateBadgeWeight(next));
+            .Aggregate(0, (cumulative, next) => cumulative + CalculateBadgeWeight(next))
+            .ToString();
     }
 }

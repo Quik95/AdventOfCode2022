@@ -23,25 +23,27 @@ public sealed class Day06 : BaseDay
     protected override long ParsingTime { get; }
 
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
         const int windowSize = 4;
-        return _buffer
-            .Window(windowSize)
-            .Select((window, i) => (window, i))
-            .First(pair =>
-                new HashSet<char>(pair.window).Count == pair.window.Count)
-            .i + windowSize;
+        return (_buffer
+                .Window(windowSize)
+                .Select((window, i) => (window, i))
+                .First(pair =>
+                    new HashSet<char>(pair.window).Count == pair.window.Count)
+                .i + windowSize)
+            .ToString();
     }
 
-    public override int SolvePart2()
+    public override string SolvePart2()
     {
         const int windowSize = 14;
-        return _buffer
-            .Window(windowSize)
-            .Select((window, i) => (window, i))
-            .First(pair =>
-                new HashSet<char>(pair.window).Count == pair.window.Count)
-            .i + windowSize;
+        return (_buffer
+                .Window(windowSize)
+                .Select((window, i) => (window, i))
+                .First(pair =>
+                    new HashSet<char>(pair.window).Count == pair.window.Count)
+                .i + windowSize)
+            .ToString();
     }
 }

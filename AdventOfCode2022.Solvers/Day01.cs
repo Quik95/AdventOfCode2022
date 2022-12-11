@@ -27,13 +27,21 @@ public sealed class Day01 : BaseDay
     }
 
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
-        return _input.Select(elf => elf.Sum()).Max();
+        return _input
+            .Select(elf => elf.Sum())
+            .Max()
+            .ToString();
     }
 
-    public override int SolvePart2()
+    public override string SolvePart2()
     {
-        return _input.Select(elf => elf.Sum()).OrderDescending().Take(3).Sum();
+        return _input
+            .Select(elf => elf.Sum())
+            .OrderDescending()
+            .Take(3)
+            .Sum()
+            .ToString();
     }
 }

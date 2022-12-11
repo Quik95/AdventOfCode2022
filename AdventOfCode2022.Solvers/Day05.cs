@@ -57,7 +57,7 @@ public sealed class Day05 : BaseDay
     }
 
 
-    public override string SolvePart1String()
+    public override string SolvePart1()
     {
         var stackCopy = _stacks.Select(stack => new Stack<char>(stack.Reverse())).ToArray();
         foreach (var move in _moves)
@@ -73,7 +73,7 @@ public sealed class Day05 : BaseDay
         return res;
     }
 
-    public override string SolvePart2String()
+    public override string SolvePart2()
     {
         foreach (var move in _moves)
         {

@@ -1,5 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Diagnostics;
+
+var sw = Stopwatch.StartNew();
 foreach (var day in Directory.GetFiles("./inputs", "*.txt"))
 {
     var assemblyQualifiedName =
@@ -16,3 +19,6 @@ foreach (var day in Directory.GetFiles("./inputs", "*.txt"))
         throw;
     }
 }
+
+sw.Stop();
+Console.WriteLine($"Cumulative time: {sw.ElapsedMilliseconds}ms");

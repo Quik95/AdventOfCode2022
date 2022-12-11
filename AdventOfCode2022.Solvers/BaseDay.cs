@@ -20,52 +20,27 @@ public abstract class BaseDay
 
     public void Solve()
     {
-        var dayName = GetType().Name;
-
         Console.WriteLine($"Solution for {GetType().Name}:");
         Console.WriteLine($"\tParsing took: {ParsingTime}ms");
-        if (dayName == "Day05")
-        {
-            var partOneTime = Stopwatch.StartNew();
-            var part1 = SolvePart1String();
-            partOneTime.Stop();
-            var partTwoTime = Stopwatch.StartNew();
-            var part2 = SolvePart2String();
-            partTwoTime.Stop();
-            Console.WriteLine($"\tPart 1: {part1} ({partOneTime.ElapsedMilliseconds}ms)");
-            Console.WriteLine($"\tPart 2: {part2} ({partTwoTime.ElapsedMilliseconds}ms)");
-        }
-        else
-        {
-            var partOneTime = Stopwatch.StartNew();
-            var part1 = SolvePart1();
-            partOneTime.Stop();
-            var partTwoTime = Stopwatch.StartNew();
-            var part2 = dayName == "Day10" ? SolvePart2String() : $"{SolvePart2()}";
-            partTwoTime.Stop();
-            Console.WriteLine($"\tPart 1: {part1} ({partOneTime.ElapsedMilliseconds}ms)");
-            Console.WriteLine($"\tPart 2: {part2} ({partTwoTime.ElapsedMilliseconds}ms)");
-        }
+        var partOneTime = Stopwatch.StartNew();
+        var part1 = SolvePart1();
+        partOneTime.Stop();
+        var partTwoTime = Stopwatch.StartNew();
+        var part2 = SolvePart2();
+        partTwoTime.Stop();
+        Console.WriteLine($"\tPart 1: {part1} ({partOneTime.ElapsedMilliseconds}ms)");
+        Console.WriteLine($"\tPart 2: {part2} ({partTwoTime.ElapsedMilliseconds}ms)");
+
 
         Console.WriteLine();
     }
 
-    public virtual int SolvePart1()
-    {
-        return 42;
-    }
-
-    public virtual int SolvePart2()
-    {
-        return 2137;
-    }
-
-    public virtual string SolvePart1String()
+    public virtual string SolvePart1()
     {
         return "42";
     }
 
-    public virtual string SolvePart2String()
+    public virtual string SolvePart2()
     {
         return "2137";
     }

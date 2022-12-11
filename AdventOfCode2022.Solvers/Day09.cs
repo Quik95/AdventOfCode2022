@@ -24,7 +24,7 @@ public sealed class Day09 : BaseDay
 
     protected override long ParsingTime { get; }
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
         var headPosition = new Coord(0, 0);
         var tailPosition = new Coord(0, 0);
@@ -54,10 +54,10 @@ public sealed class Day09 : BaseDay
             }
         }
 
-        return visitedByTail.Count;
+        return visitedByTail.Count.ToString();
     }
 
-    public override int SolvePart2()
+    public override string SolvePart2()
     {
         var segmentsPositions = new[] {new Coord(0, 0)}
             .Concat(Enumerable.Range(1, 9).Select(_ => new Coord(0, 0))).ToArray();
@@ -97,7 +97,7 @@ public sealed class Day09 : BaseDay
             }
         }
 
-        return visitedByTail.Count;
+        return visitedByTail.Count.ToString();
     }
 
     private void PrintBoard(Coord[] segments)

@@ -10,14 +10,14 @@ public class AdventOfCodeTests
         public void Part1Example()
         {
             var d = new Day02("A Y\nB X\nC Z");
-            Assert.Equal(15, d.SolvePart1());
+            Assert.Equal("15", d.SolvePart1());
         }
 
         [Fact]
         public void Part2Example()
         {
             var d = new Day02("A Y\nB X\nC Z");
-            Assert.Equal(12, d.SolvePart2());
+            Assert.Equal("12", d.SolvePart2());
         }
     }
 
@@ -34,8 +34,8 @@ public class AdventOfCodeTests
                 "ttgJtRGJQctTZtZT\n" +
                 "CrZsJsPPZsGzwwsLwLmpwMDw"
             );
-            Assert.Equal(157, d.SolvePart1());
-            Assert.Equal(70, d.SolvePart2());
+            Assert.Equal("157", d.SolvePart1());
+            Assert.Equal("70", d.SolvePart2());
         }
     }
 
@@ -52,8 +52,8 @@ public class AdventOfCodeTests
                 "6-6,4-6\n" +
                 "2-6,4-8"
             );
-            Assert.Equal(2, d.SolvePart1());
-            Assert.Equal(4, d.SolvePart2());
+            Assert.Equal("2", d.SolvePart1());
+            Assert.Equal("4", d.SolvePart2());
         }
     }
 
@@ -71,8 +71,8 @@ public class AdventOfCodeTests
                 "move 2 from 2 to 1\n" +
                 "move 1 from 1 to 2"
             );
-            Assert.Equal("CMZ", d.SolvePart1String());
-            Assert.Equal("MCD", d.SolvePart2String());
+            Assert.Equal("CMZ", d.SolvePart1());
+            Assert.Equal("MCD", d.SolvePart2());
         }
     }
 
@@ -82,12 +82,12 @@ public class AdventOfCodeTests
         public void Part1Example()
         {
             var d = new Day06("mjqjpqmgbljsphdztnvjfqwrcgsmlb");
-            Assert.Equal(7, d.SolvePart1());
-            Assert.Equal(19, d.SolvePart2());
+            Assert.Equal("7", d.SolvePart1());
+            Assert.Equal("19", d.SolvePart2());
 
             d = new Day06("bvwbjplbgvbhsrlpgdmjqwftvncz");
-            Assert.Equal(5, d.SolvePart1());
-            Assert.Equal(23, d.SolvePart2());
+            Assert.Equal("5", d.SolvePart1());
+            Assert.Equal("23", d.SolvePart2());
         }
     }
 
@@ -121,8 +121,8 @@ public class AdventOfCodeTests
                 "5626152 d.ext\n" +
                 "7214296 k"
             );
-            Assert.Equal(95437, d.SolvePart1());
-            Assert.Equal(24933642, d.SolvePart2());
+            Assert.Equal("95437", d.SolvePart1());
+            Assert.Equal("24933642", d.SolvePart2());
         }
     }
 
@@ -138,8 +138,8 @@ public class AdventOfCodeTests
                 "33549\n" +
                 "35390"
             );
-            Assert.Equal(21, d.SolvePart1());
-            Assert.Equal(8, d.SolvePart2());
+            Assert.Equal("21", d.SolvePart1());
+            Assert.Equal("8", d.SolvePart2());
         }
     }
 
@@ -158,7 +158,7 @@ public class AdventOfCodeTests
                 "L 5\n" +
                 "R 2"
             );
-            Assert.Equal(13, d.SolvePart1());
+            Assert.Equal("13", d.SolvePart1());
         }
 
         [Fact]
@@ -174,7 +174,46 @@ public class AdventOfCodeTests
                 "L 25\n" +
                 "U 20"
             );
-            Assert.Equal(36, d.SolvePart2());
+            Assert.Equal("36", d.SolvePart2());
+        }
+    }
+
+    public class Day11Tests
+    {
+        [Fact]
+        public void TestPart1Example()
+        {
+            var d = new Day11(
+                "Monkey 0:\n" +
+                "Starting items: 79, 98\n" +
+                "Operation: new = old * 19\n" +
+                "Test: divisible by 23\n" +
+                "If true: throw to monkey 2\n" +
+                "If false: throw to monkey 3\n" +
+                "\n" +
+                "Monkey 1:\n" +
+                "Starting items: 54, 65, 75, 74\n" +
+                "Operation: new = old + 6\n" +
+                "Test: divisible by 19\n" +
+                "If true: throw to monkey 2\n" +
+                "If false: throw to monkey 0\n" +
+                "\n" +
+                "Monkey 2:\n" +
+                "Starting items: 79, 60, 97\n" +
+                "Operation: new = old * old\n" +
+                "Test: divisible by 13\n" +
+                "If true: throw to monkey 1\n" +
+                "If false: throw to monkey 3\n" +
+                "\n" +
+                "Monkey 3:\n" +
+                "Starting items: 74\n" +
+                "Operation: new = old + 3\n" +
+                "Test: divisible by 17\n" +
+                "If true: throw to monkey 0\n" +
+                "If false: throw to monkey 1"
+            );
+            Assert.Equal("10605", d.SolvePart1());
+            Assert.Equal("2713310158", d.SolvePart2());
         }
     }
 }

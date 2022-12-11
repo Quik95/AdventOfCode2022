@@ -48,13 +48,17 @@ public sealed class Day02 : BaseDay
     protected override long ParsingTime { get; }
 
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
-        return _input.Aggregate(0, (cumulative, next) => cumulative + LookupTable[next]);
+        return _input
+            .Aggregate(0, (cumulative, next) => cumulative + LookupTable[next])
+            .ToString();
     }
 
-    public override int SolvePart2()
+    public override string SolvePart2()
     {
-        return _input.Aggregate(0, (cumulative, next) => cumulative + LookupTable2[next]);
+        return _input
+            .Aggregate(0, (cumulative, next) => cumulative + LookupTable2[next])
+            .ToString();
     }
 }

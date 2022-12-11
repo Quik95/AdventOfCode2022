@@ -35,47 +35,49 @@ public sealed class Day08 : BaseDay
     }
 
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
         return _grid.Count(tree =>
-            _cardinalDirections.Any(direction =>
-            {
-                if (tree.Key.X == 0 || tree.Key.Y == 0)
-                    return true;
-                var treeHeight = tree.Value;
-                var adjacent = new Coord(tree.Key.X + direction.X, tree.Key.Y + direction.Y);
-                while (_grid.ContainsKey(adjacent))
+                _cardinalDirections.Any(direction =>
                 {
-                    if (treeHeight <= _grid[adjacent]) return false;
-                    adjacent = new Coord(adjacent.X + direction.X, adjacent.Y + direction.Y);
-                }
+                    if (tree.Key.X == 0 || tree.Key.Y == 0)
+                        return true;
+                    var treeHeight = tree.Value;
+                    var adjacent = new Coord(tree.Key.X + direction.X, tree.Key.Y + direction.Y);
+                    while (_grid.ContainsKey(adjacent))
+                    {
+                        if (treeHeight <= _grid[adjacent]) return false;
+                        adjacent = new Coord(adjacent.X + direction.X, adjacent.Y + direction.Y);
+                    }
 
-                return true;
-            })
-        );
+                    return true;
+                })
+            )
+            .ToString();
     }
 
-    public override int SolvePart2()
+    public override string SolvePart2()
     {
         return _grid.Max(entry =>
-            _cardinalDirections.Aggregate(1, (cumulative, direction) =>
-            {
-                if (entry.Key.X == 0 || entry.Key.Y == 0)
-                    return 0;
-
-                var treeHeight = entry.Value;
-                var adjacent = new Coord(entry.Key.X + direction.X, entry.Key.Y + direction.Y);
-                var viewingDistance = 0;
-                while (_grid.ContainsKey(adjacent))
+                _cardinalDirections.Aggregate(1, (cumulative, direction) =>
                 {
-                    viewingDistance++;
-                    if (_grid[adjacent] >= treeHeight) break;
-                    adjacent = new Coord(adjacent.X + direction.X, adjacent.Y + direction.Y);
-                }
+                    if (entry.Key.X == 0 || entry.Key.Y == 0)
+                        return 0;
 
-                return viewingDistance * cumulative;
-            })
-        );
+                    var treeHeight = entry.Value;
+                    var adjacent = new Coord(entry.Key.X + direction.X, entry.Key.Y + direction.Y);
+                    var viewingDistance = 0;
+                    while (_grid.ContainsKey(adjacent))
+                    {
+                        viewingDistance++;
+                        if (_grid[adjacent] >= treeHeight) break;
+                        adjacent = new Coord(adjacent.X + direction.X, adjacent.Y + direction.Y);
+                    }
+
+                    return viewingDistance * cumulative;
+                })
+            )
+            .ToString();
     }
 
     private record struct Coord(int X, int Y);

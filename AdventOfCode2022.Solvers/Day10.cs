@@ -25,7 +25,7 @@ public sealed class Day10 : BaseDay
 
     protected override long ParsingTime { get; }
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
         var cycleNumber = 1;
         var strengths = new List<int>();
@@ -50,7 +50,7 @@ public sealed class Day10 : BaseDay
             cycleNumber++;
         }
 
-        return strengths.Sum();
+        return strengths.Sum().ToString();
     }
 
     private static void UpdateSignalStrengths(ref List<int> strengths, int cycleNumber, int xRegister)
@@ -58,9 +58,9 @@ public sealed class Day10 : BaseDay
         if (cycleNumber == 20 || (cycleNumber - 20) % 40 == 0) strengths.Add(cycleNumber * xRegister);
     }
 
-    public override string SolvePart2String()
+    public override string SolvePart2()
     {
-        var display = Enumerable.Range(1, 240).Select(_ => '.').ToArray();
+        var display = Enumerable.Range(1, 240).Select(_ => '░').ToArray();
 
         var cycleNumber = 1;
         var spritePosition = 1;
@@ -97,6 +97,6 @@ public sealed class Day10 : BaseDay
         var drawingPosition = cycleNumber % 40 - 1;
         if (Math.Abs(spritePosition - drawingPosition) > 1) return;
         var index = cycleNumber - 1;
-        display[index] = '#';
+        display[index] = '▓';
     }
 }

@@ -70,16 +70,16 @@ public sealed class Day07 : BaseDay
     }
 
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
         var directories = new List<Entry>();
         _rootElement.GetAllDirectories(ref directories);
 
         var res = directories.Where(dir => dir.Size! <= 100_000).Sum(dir => dir.Size!);
-        return res!.Value;
+        return res!.Value.ToString();
     }
 
-    public override int SolvePart2()
+    public override string SolvePart2()
     {
         const int totalSpace = 70_000_000;
         const int minimumFreeSpace = 30_000_000;
@@ -89,11 +89,12 @@ public sealed class Day07 : BaseDay
         _rootElement.GetAllDirectories(ref directories);
 
         return directories.Where(dir => currentFreeSpace + dir.Size!.Value >= minimumFreeSpace)
-            .Min(dir => dir.Size!.Value);
+            .Min(dir => dir.Size!.Value)
+            .ToString();
     }
 }
 
-public static class StringExtension
+public static class StringExtensions
 {
     public static string TrimStart(this string str, string toBeTrimmed)
     {

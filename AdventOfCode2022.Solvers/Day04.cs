@@ -35,14 +35,20 @@ public sealed class Day04 : BaseDay
     }
 
 
-    public override int SolvePart1()
+    public override string SolvePart1()
     {
-        return _input.Chunk(2).Count(pair => pair[0].Contains(pair[1]) || pair[1].Contains(pair[0]));
+        return _input
+            .Chunk(2)
+            .Count(pair => pair[0].Contains(pair[1]) || pair[1].Contains(pair[0]))
+            .ToString();
     }
 
-    public override int SolvePart2()
+    public override string SolvePart2()
     {
-        return _input.Chunk(2).Count(pair => pair[0].Overlaps(pair[1]));
+        return _input
+            .Chunk(2)
+            .Count(pair => pair[0].Overlaps(pair[1]))
+            .ToString();
     }
 
     private readonly record struct Range(int Start, int End)
