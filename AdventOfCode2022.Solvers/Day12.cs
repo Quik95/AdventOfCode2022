@@ -54,7 +54,7 @@ public sealed class Day12 : BaseDay
         return (start, end, dict);
     }
 
-    private int Dijkstra((int X, int Y) startingPosition)
+    private int DijkstraPart1((int X, int Y) startingPosition)
     {
         var dist = new Dictionary<(int, int), int>(
             _relativeHeightMap.Keys.Select(key => new KeyValuePair<(int, int), int>(key, int.MaxValue))
@@ -86,17 +86,45 @@ public sealed class Day12 : BaseDay
         return int.MaxValue;
     }
 
+    private int DijkstraPart2((int X, int Y) startingPosition)
+    {
+        var dist = new Dictionary<(int, int), int>(
+            _relativeHeightMap.Keys.Select(key => new KeyValuePair<(int, int), int>(key, int.MaxValue))
+        ) {[startingPosition] = 0};
+
+        var queue = new PriorityQueue<(int, int), int>();
+        queue.Enqueue(startingPosition, 0);
+
+        while (queue.TryDequeue(out (int X, int Y) position, out var cost))
+        {
+            if (_relativeHeightMap[position] == 0) return cost;
+
+            if (cost > dist[position]) continue;
+
+            foreach (var (dx, dy) in _cardinalDirections)
+            {
+                var next = (position.X + dx, position.Y + dy);
+                var nextCost = cost + 1;
+
+                if (!_relativeHeightMap.ContainsKey(next)) continue;
+                if (_relativeHeightMap[position] - _relativeHeightMap[next] > 1) continue;
+                if (nextCost >= dist[next]) continue;
+
+                queue.Enqueue(next, nextCost);
+                dist[next] = nextCost;
+            }
+        }
+
+        return int.MaxValue;
+    }
+
     public override string SolvePart1()
     {
-        return Dijkstra(_startingLocation).ToString();
+        return DijkstraPart1(_startingLocation).ToString();
     }
 
     public override string SolvePart2()
     {
-        return _relativeHeightMap
-            .Where(kv => kv.Value == 0)
-            .Select(kv => Dijkstra(kv.Key))
-            .Min()
-            .ToString();
+        return DijkstraPart2(_destination).ToString();
     }
 }
