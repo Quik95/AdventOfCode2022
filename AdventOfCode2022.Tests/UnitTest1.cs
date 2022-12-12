@@ -216,4 +216,21 @@ public class AdventOfCodeTests
             Assert.Equal("2713310158", d.SolvePart2());
         }
     }
+
+    public class Day12Tests
+    {
+        [Fact]
+        public void Part1Example()
+        {
+            var d = new Day12(
+                "Sabqponm\n" +
+                "abcryxxl\n" +
+                "accszExk\n" +
+                "acctuvwj\n" +
+                "abdefghi"
+            );
+            Assert.Equal("31", d.SolvePart1());
+            Assert.Equal("29", d.SolvePart2());
+        }
+    }
 }
