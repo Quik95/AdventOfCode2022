@@ -230,7 +230,51 @@ public class AdventOfCodeTests
                 "abdefghi"
             );
             Assert.Equal("31", d.SolvePart1());
-            Assert.Equal("29", d.SolvePart2());
+        }
+    }
+
+    public class Day13Tests
+    {
+        [Fact]
+        public void Part1Example()
+        {
+            var d = new Day13(
+                "[1,1,3,1,1]\n" +
+                "[1,1,5,1,1]\n" +
+                "\n" +
+                "[[1],[2,3,4]]\n" +
+                "[[1],4]\n" +
+                "\n" +
+                "[9]\n" +
+                "[[8,7,6]]\n" +
+                "\n" +
+                "[[4,4],4,4]\n" +
+                "[[4,4],4,4,4]\n" +
+                "\n" +
+                "[7,7,7,7]\n" +
+                "[7,7,7]\n" +
+                "\n" +
+                "[]\n" +
+                "[3]\n" +
+                "\n" +
+                "[[[]]]\n" +
+                "[[]]\n" +
+                "\n" +
+                "[1,[2,[3,[4,[5,6,7]]]],8,9]\n" +
+                "[1,[2,[3,[4,[5,6,0]]]],8,9]"
+            );
+            Assert.Equal("13", d.SolvePart1());
+        }
+    }
+
+    public class Day14Tests
+    {
+        [Fact]
+        public void Part1Example()
+        {
+            var d = new Day14("498,4 -> 498,6 -> 496,6\n503,4 -> 502,4 -> 502,9 -> 494,9");
+            Assert.Equal("24", d.SolvePart1());
+            Assert.Equal("93", d.SolvePart2());
         }
     }
 }
